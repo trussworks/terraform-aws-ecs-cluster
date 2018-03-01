@@ -97,12 +97,11 @@ resource "aws_iam_instance_profile" "ecs_instance_profile" {
 resource "aws_launch_configuration" "main" {
   name_prefix = "${format("ecs-%s-", local.cluster_name)}"
 
-  associate_public_ip_address = false
-
-  # XXX: Try removing iam_instace_profile and see if things still work
   iam_instance_profile = "${aws_iam_instance_profile.ecs_instance_profile.name}"
-  image_id             = "${var.image_id}"
-  instance_type        = "${var.instance_type}"
+
+  instance_type               = "${var.instance_type}"
+  image_id                    = "${var.image_id}"
+  associate_public_ip_address = false
 
   root_block_device {
     volume_type = "standard"
@@ -116,7 +115,7 @@ resource "aws_launch_configuration" "main" {
   user_data = <<EOF
 #!/bin/bash
 # The cluster this agent should check into.
-echo "ECS_CLUSTER=${aws_ecs_cluster.main.name}" >> /etc/ecs/ecs.config
+echo 'ECS_CLUSTER=${aws_ecs_cluster.main.name}' >> /etc/ecs/ecs.config
 
 # Disable privileged containers.
 echo 'ECS_DISABLE_PRIVILEGED=true' >> /etc/ecs/ecs.config
