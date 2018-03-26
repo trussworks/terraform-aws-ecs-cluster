@@ -110,6 +110,7 @@ resource "aws_launch_configuration" "main" {
   ebs_block_device {
     device_name = "/dev/xvdcz"
     volume_type = "standard"
+    encrypted   = true
   }
 
   user_data = <<EOF
