@@ -1,3 +1,4 @@
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Creates an ECS cluster backed by an AutoScaling Group.
 
 The cluster is minimally configured and expects any ECS service added will
@@ -59,3 +60,4 @@ module "app_ecs_cluster" {
 | ecs_cluster_arn | The ARN of the ECS cluster. |
 | ecs_cluster_name | The name of the ECS cluster. |
 
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
