@@ -52,6 +52,7 @@ module "app_ecs_cluster" {
 | min_size | Minimum instance count. | string | `2` | no |
 | name | The ECS cluster name this will launching instances for. | string | - | yes |
 | subnet_ids | A list of subnet IDs to launch resources in. | list | - | yes |
+| vpc_id | The id of the VPC to launch resources in. | string | - | yes |
 
 ## Outputs
 

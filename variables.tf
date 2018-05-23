@@ -15,6 +15,10 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
+variable "vpc_id" {
+  description = "The id of the VPC to launch resources in."
+}
+
 variable "subnet_ids" {
   description = "A list of subnet IDs to launch resources in."
   type        = "list"
