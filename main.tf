@@ -96,7 +96,7 @@ resource "aws_iam_instance_profile" "ecs_instance_profile" {
 
 resource "aws_security_group" "main" {
   name        = "asg-${local.cluster_name}"
-  description = "${local.cluster_name} asg security group"
+  description = "${local.cluster_name} ASG security group"
   vpc_id      = "${var.vpc_id}"
 
   tags = {
