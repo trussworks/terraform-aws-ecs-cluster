@@ -80,6 +80,8 @@ resource "aws_iam_role" "ecs_instance_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "ecs_instance_role_policy" {
+  count = "${var.use_AmazonEC2ContainerServiceforEC2Role_policy ? 1 : 0}"
+
   role       = "${aws_iam_role.ecs_instance_role.name}"
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
 }

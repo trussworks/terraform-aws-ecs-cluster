@@ -52,6 +52,7 @@ module "app_ecs_cluster" {
 | min_size | Minimum instance count. | string | `2` | no |
 | name | The ECS cluster name this will launching instances for. | string | - | yes |
 | subnet_ids | A list of subnet IDs to launch resources in. | list | - | yes |
+| use_AmazonEC2ContainerServiceforEC2Role_policy | Attaches the AWS managed AmazonEC2ContainerServiceforEC2Role policy to the ECS instance role. | string | `true` | no |
 | vpc_id | The id of the VPC to launch resources in. | string | - | yes |
 
 ## Outputs
@@ -60,5 +61,6 @@ module "app_ecs_cluster" {
 |------|-------------|
 | ecs_cluster_arn | The ARN of the ECS cluster. |
 | ecs_cluster_name | The name of the ECS cluster. |
+| ecs_instance_role | The name of the ECS instance role. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
