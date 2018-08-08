@@ -24,7 +24,7 @@ data "aws_ami" "ecs_ami" {
 }
 
 module "app_ecs_cluster" {
-  source = "../modules/aws-ecs-cluster"
+  source = "trussworks/ecs-cluster/aws"
 
   name        = "app"
   environment = "prod"
