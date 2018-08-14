@@ -103,6 +103,7 @@ resource "aws_security_group" "main" {
 
   tags = {
     Environment = "${var.environment}"
+    Automation  = "Terraform"
   }
 }
 
@@ -185,6 +186,12 @@ resource "aws_autoscaling_group" "main" {
   tag {
     key                 = "Environment"
     value               = "${var.environment}"
+    propagate_at_launch = true
+  }
+
+  tag {
+    key                 = "Automation"
+    value               = "Terraform"
     propagate_at_launch = true
   }
 }
