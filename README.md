@@ -39,28 +39,27 @@ module "app_ecs_cluster" {
 }
 ```
 
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| desired_capacity | Desired instance count. | string | `2` | no |
-| environment | Environment tag. | string | - | yes |
-| image_id | Amazon ECS-Optimized AMI. | string | - | yes |
-| instance_type | The instance type to use. | string | `t2.micro` | no |
-| max_size | Maxmimum instance count. | string | `2` | no |
-| min_size | Minimum instance count. | string | `2` | no |
-| name | The ECS cluster name this will launching instances for. | string | - | yes |
-| subnet_ids | A list of subnet IDs to launch resources in. | list | - | yes |
-| use_AmazonEC2ContainerServiceforEC2Role_policy | Attaches the AWS managed AmazonEC2ContainerServiceforEC2Role policy to the ECS instance role. | string | `true` | no |
-| vpc_id | The id of the VPC to launch resources in. | string | - | yes |
+| desired\_capacity | Desired instance count. | string | `"2"` | no |
+| environment | Environment tag. | string | n/a | yes |
+| image\_id | Amazon ECS-Optimized AMI. | string | n/a | yes |
+| instance\_type | The instance type to use. | string | `"t2.micro"` | no |
+| max\_size | Maxmimum instance count. | string | `"2"` | no |
+| min\_size | Minimum instance count. | string | `"2"` | no |
+| name | The ECS cluster name this will launching instances for. | string | n/a | yes |
+| subnet\_ids | A list of subnet IDs to launch resources in. | list | n/a | yes |
+| use\_AmazonEC2ContainerServiceforEC2Role\_policy | Attaches the AWS managed AmazonEC2ContainerServiceforEC2Role policy to the ECS instance role. | string | `"true"` | no |
+| vpc\_id | The id of the VPC to launch resources in. | string | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| ecs_cluster_arn | The ARN of the ECS cluster. |
-| ecs_cluster_name | The name of the ECS cluster. |
-| ecs_instance_role | The name of the ECS instance role. |
+| ecs\_cluster\_arn | The ARN of the ECS cluster. |
+| ecs\_cluster\_name | The name of the ECS cluster. |
+| ecs\_instance\_role | The name of the ECS instance role. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
