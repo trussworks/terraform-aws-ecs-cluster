@@ -1,4 +1,3 @@
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Creates an ECS cluster backed by an AutoScaling Group.
 
 The cluster is minimally configured and expects any ECS service added will
@@ -39,6 +38,7 @@ module "app_ecs_cluster" {
 }
 ```
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -50,7 +50,7 @@ module "app_ecs_cluster" {
 | max\_size | Maxmimum instance count. | string | `"2"` | no |
 | min\_size | Minimum instance count. | string | `"2"` | no |
 | name | The ECS cluster name this will launching instances for. | string | n/a | yes |
-| subnet\_ids | A list of subnet IDs to launch resources in. | list | n/a | yes |
+| subnet\_ids | A list of subnet IDs to launch resources in. | list(string) | n/a | yes |
 | use\_AmazonEC2ContainerServiceforEC2Role\_policy | Attaches the AWS managed AmazonEC2ContainerServiceforEC2Role policy to the ECS instance role. | string | `"true"` | no |
 | vpc\_id | The id of the VPC to launch resources in. | string | n/a | yes |
 
