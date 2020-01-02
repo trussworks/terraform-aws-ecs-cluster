@@ -38,6 +38,13 @@ module "app_ecs_cluster" {
 }
 ```
 
+## Terraform Versions
+
+Terraform 0.12. Pin module version to ~> 2.0. Submit pull-requests to master branch.
+
+Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform011 branch.
+
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
