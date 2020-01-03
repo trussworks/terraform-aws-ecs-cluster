@@ -20,7 +20,7 @@ func TestTerraformAwsEcsExample(t *testing.T) {
 	tempTestFolder := test_structure.CopyTerraformFolderToTemp(t, "../", "examples/simple")
 
 	expectedClusterName := fmt.Sprintf("terratest-aws-ecs-example-cluster-%s", random.UniqueId())
-	moduleClusterName := expectedClusterName + "-test"
+	moduleClusterName := fmt.Sprintf("%s-test", expectedClusterName)
 
 	// Pick a random AWS region to test in. This helps ensure your code works in all regions.
 	awsRegion := "us-west-2"
