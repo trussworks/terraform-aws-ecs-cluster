@@ -53,5 +53,5 @@ func TestTerraformAwsEcsExample(t *testing.T) {
 	// Look up the ECS cluster by name
 	cluster := aws.GetEcsCluster(t, awsRegion, moduleClusterName)
 
-	assert.Equal(t, awsSDK.StringValue(cluster.ClusterName), expectedClusterName+"-test")
+	assert.Equal(t, awsSDK.StringValue(cluster.ClusterName), fmt.Sprintf("%s-test", expectedClusterName))
 }
