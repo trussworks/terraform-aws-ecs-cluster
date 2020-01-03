@@ -23,7 +23,7 @@ func TestTerraformAwsEcsExample(t *testing.T) {
 	moduleClusterName := expectedClusterName + "-test"
 
 	// Pick a random AWS region to test in. This helps ensure your code works in all regions.
-	awsRegion := aws.GetRandomStableRegion(t, []string{"us-east-1", "eu-west-1"}, nil)
+	awsRegion := "us-west-2"
 
 	// Availablity Zones in the region
 	vpcAzs := aws.GetAvailabilityZones(t, awsRegion)[:3]
