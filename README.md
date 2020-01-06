@@ -1,4 +1,3 @@
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Creates an ECS cluster backed by an AutoScaling Group.
 
 The cluster is minimally configured and expects any ECS service added will
@@ -39,6 +38,14 @@ module "app_ecs_cluster" {
 }
 ```
 
+## Terraform Versions
+
+Terraform 0.12. Pin module version to ~> 2.0. Submit pull-requests to master branch.
+
+Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform011 branch.
+
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -50,7 +57,7 @@ module "app_ecs_cluster" {
 | max\_size | Maxmimum instance count. | string | `"2"` | no |
 | min\_size | Minimum instance count. | string | `"2"` | no |
 | name | The ECS cluster name this will launching instances for. | string | n/a | yes |
-| subnet\_ids | A list of subnet IDs to launch resources in. | list | n/a | yes |
+| subnet\_ids | A list of subnet IDs to launch resources in. | list(string) | n/a | yes |
 | use\_AmazonEC2ContainerServiceforEC2Role\_policy | Attaches the AWS managed AmazonEC2ContainerServiceforEC2Role policy to the ECS instance role. | string | `"true"` | no |
 | vpc\_id | The id of the VPC to launch resources in. | string | n/a | yes |
 
@@ -63,3 +70,29 @@ module "app_ecs_cluster" {
 | ecs\_instance\_role | The name of the ECS instance role. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+
+## Developer Setup
+
+Install dependencies (macOS)
+
+```shell
+brew install pre-commit go terraform terraform-docs
+pre-commit install --install-hooks
+```
+
+### Testing
+
+[Terratest](https://github.com/gruntwork-io/terratest) is being used for
+automated testing with this module. Tests in the `test` folder can be run
+locally by running the following command:
+
+```text
+make test
+```
+
+Or with aws-vault:
+
+```text
+AWS_VAULT_KEYCHAIN_NAME=<NAME> aws-vault exec <PROFILE> -- make test
+```
