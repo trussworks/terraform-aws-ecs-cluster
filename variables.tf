@@ -53,7 +53,7 @@ variable "use_AmazonEC2ContainerServiceforEC2Role_policy" {
 }
 
 variable "security_group_ids" {
-  description = "A list of aws security group ids to launch resources in"
+  description = "A list of aws security group ids to define what a resource can reach on the network."
   type        = list(string)
   default     = []
 }
