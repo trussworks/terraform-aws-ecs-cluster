@@ -46,6 +46,12 @@ Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform0
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+
 ## Providers
 
 | Name | Version |
@@ -55,7 +61,8 @@ Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform0
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
+| aws\_security\_group\_ids | A list of aws security group ids to launch resources in | `list(string)` | `[]` | no |
 | desired\_capacity | Desired instance count. | `string` | `2` | no |
 | environment | Environment tag. | `string` | n/a | yes |
 | image\_id | Amazon ECS-Optimized AMI. | `string` | n/a | yes |
