@@ -8,6 +8,13 @@ data "aws_ami" "ecs_ami" {
   }
 }
 
+resource "aws_security_group" "test_group" {
+  name        = var.test_name
+  description = "creates a security group to test with"
+  vpc_id      = module.vpc.vpc_id
+}
+
+
 module "app_ecs_cluster" {
   source = "../../"
 
@@ -17,11 +24,12 @@ module "app_ecs_cluster" {
   image_id      = "${data.aws_ami.ecs_ami.image_id}"
   instance_type = "t2.micro"
 
-  vpc_id           = module.vpc.vpc_id
-  subnet_ids       = module.vpc.private_subnets
-  desired_capacity = 1
-  max_size         = 1
-  min_size         = 1
+  vpc_id             = module.vpc.vpc_id
+  subnet_ids         = module.vpc.private_subnets
+  security_group_ids = [aws_security_group.test_group.id]
+  desired_capacity   = 1
+  max_size           = 1
+  min_size           = 1
 }
 
 module "vpc" {

@@ -52,3 +52,8 @@ variable "use_AmazonEC2ContainerServiceforEC2Role_policy" {
   default     = true
 }
 
+variable "security_group_ids" {
+  description = "A list of security group ids to attach to the autoscaling group"
+  type        = list(string)
+  default     = []
+}

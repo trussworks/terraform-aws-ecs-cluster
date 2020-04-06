@@ -46,6 +46,12 @@ Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform0
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+
 ## Providers
 
 | Name | Version |
@@ -55,7 +61,7 @@ Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform0
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | desired\_capacity | Desired instance count. | `string` | `2` | no |
 | environment | Environment tag. | `string` | n/a | yes |
 | image\_id | Amazon ECS-Optimized AMI. | `string` | n/a | yes |
@@ -63,6 +69,7 @@ Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform0
 | max\_size | Maxmimum instance count. | `string` | `2` | no |
 | min\_size | Minimum instance count. | `string` | `2` | no |
 | name | The ECS cluster name this will launching instances for. | `string` | n/a | yes |
+| security\_group\_ids | A list of aws security group ids to define what a resource can reach on the network. | `list(string)` | `[]` | no |
 | subnet\_ids | A list of subnet IDs to launch resources in. | `list(string)` | n/a | yes |
 | use\_AmazonEC2ContainerServiceforEC2Role\_policy | Attaches the AWS managed AmazonEC2ContainerServiceforEC2Role policy to the ECS instance role. | `string` | `true` | no |
 | vpc\_id | The id of the VPC to launch resources in. | `any` | n/a | yes |
