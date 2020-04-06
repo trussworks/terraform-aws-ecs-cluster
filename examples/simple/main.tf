@@ -9,7 +9,7 @@ data "aws_ami" "ecs_ami" {
 }
 
 resource "aws_security_group" "test_group" {
-  name        = "test_group"
+  name        = var.test_name
   description = "creates a security group to test with"
   vpc_id      = module.vpc.vpc_id
 }
