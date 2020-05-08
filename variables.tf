@@ -57,3 +57,9 @@ variable "security_group_ids" {
   type        = list(string)
   default     = []
 }
+
+variable "ebs_volume_size" {
+  description = "Size of EBS volumes to be attached to your ECS cluster"
+  type        = integer
+  default     = 50
+}
