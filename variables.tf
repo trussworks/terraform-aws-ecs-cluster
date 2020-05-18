@@ -63,3 +63,8 @@ variable "ebs_volume_size" {
   type        = number
   default     = 50
 }
+
+variable "key_name" {
+  description = "Keypair to allow SSH access to ASG instances"
+  type        = string
+}
