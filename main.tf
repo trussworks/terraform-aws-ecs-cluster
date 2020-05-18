@@ -89,6 +89,7 @@ resource "aws_launch_configuration" "main" {
   image_id                    = var.image_id
   associate_public_ip_address = false
   security_groups             = concat(var.security_group_ids, [aws_security_group.main.id])
+  key_name                    = var.key_name
 
   root_block_device {
     volume_type = "standard"
