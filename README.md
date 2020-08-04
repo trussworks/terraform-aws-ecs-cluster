@@ -51,12 +51,13 @@ Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform0
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12 |
+| aws | ~> 2.70 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| aws | ~> 2.70 |
 
 ## Inputs
 
