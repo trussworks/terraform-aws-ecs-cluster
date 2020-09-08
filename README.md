@@ -47,43 +47,42 @@ Terraform 0.12. Pin module version to ~> 2.0. Submit pull-requests to terraform0
 Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform011 branch.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 ## Requirements
 
-| Name      | Version   |
-| --------- | --------- |
+| Name | Version |
+|------|---------|
 | terraform | ~> 0.13.0 |
-| aws       | ~> 3.0    |
+| aws | ~> 3.0 |
 
 ## Providers
 
 | Name | Version |
-| ---- | ------- |
-| aws  | ~> 3.0  |
+|------|---------|
+| aws | ~> 3.0 |
 
 ## Inputs
 
-| Name                                           | Description                                                                                   | Type           | Default      | Required |
-| ---------------------------------------------- | --------------------------------------------------------------------------------------------- | -------------- | ------------ | :------: |
-| desired_capacity                               | Desired instance count.                                                                       | `string`       | `2`          |    no    |
-| environment                                    | Environment tag.                                                                              | `string`       | n/a          |   yes    |
-| image_id                                       | Amazon ECS-Optimized AMI.                                                                     | `string`       | n/a          |   yes    |
-| instance_type                                  | The instance type to use.                                                                     | `string`       | `"t2.micro"` |    no    |
-| max_size                                       | Maxmimum instance count.                                                                      | `string`       | `2`          |    no    |
-| min_size                                       | Minimum instance count.                                                                       | `string`       | `2`          |    no    |
-| name                                           | The ECS cluster name this will launching instances for.                                       | `string`       | n/a          |   yes    |
-| security_group_ids                             | A list of security group ids to attach to the autoscaling group                               | `list(string)` | `[]`         |    no    |
-| subnet_ids                                     | A list of subnet IDs to launch resources in.                                                  | `list(string)` | n/a          |   yes    |
-| use_AmazonEC2ContainerServiceforEC2Role_policy | Attaches the AWS managed AmazonEC2ContainerServiceforEC2Role policy to the ECS instance role. | `string`       | `true`       |    no    |
-| vpc_id                                         | The id of the VPC to launch resources in.                                                     | `any`          | n/a          |   yes    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| desired\_capacity | Desired instance count. | `string` | `2` | no |
+| environment | Environment tag. | `string` | n/a | yes |
+| image\_id | Amazon ECS-Optimized AMI. | `string` | n/a | yes |
+| instance\_type | The instance type to use. | `string` | `"t2.micro"` | no |
+| max\_size | Maxmimum instance count. | `string` | `2` | no |
+| min\_size | Minimum instance count. | `string` | `2` | no |
+| name | The ECS cluster name this will launching instances for. | `string` | n/a | yes |
+| security\_group\_ids | A list of security group ids to attach to the autoscaling group | `list(string)` | `[]` | no |
+| subnet\_ids | A list of subnet IDs to launch resources in. | `list(string)` | n/a | yes |
+| use\_AmazonEC2ContainerServiceforEC2Role\_policy | Attaches the AWS managed AmazonEC2ContainerServiceforEC2Role policy to the ECS instance role. | `string` | `true` | no |
+| vpc\_id | The id of the VPC to launch resources in. | `any` | n/a | yes |
 
 ## Outputs
 
-| Name              | Description                        |
-| ----------------- | ---------------------------------- |
-| ecs_cluster_arn   | The ARN of the ECS cluster.        |
-| ecs_cluster_name  | The name of the ECS cluster.       |
-| ecs_instance_role | The name of the ECS instance role. |
+| Name | Description |
+|------|-------------|
+| ecs\_cluster\_arn | The ARN of the ECS cluster. |
+| ecs\_cluster\_name | The name of the ECS cluster. |
+| ecs\_instance\_role | The name of the ECS instance role. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
