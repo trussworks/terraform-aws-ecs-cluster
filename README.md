@@ -5,9 +5,9 @@ use `awsvpc` networking and Task IAM Roles for access control.
 
 Creates the following resources:
 
-* IAM role for the container instance.
-* Launch Configuration and AutoScaling group.
-* ECS cluster.
+- IAM role for the container instance.
+- Launch Configuration and AutoScaling group.
+- ECS cluster.
 
 ## Usage
 
@@ -40,10 +40,11 @@ module "app_ecs_cluster" {
 
 ## Terraform Versions
 
-Terraform 0.12. Pin module version to ~> 2.0. Submit pull-requests to master branch.
+Terraform 0.13. Pin module version to ~> 3.0. Submit pull-requests to master branch.
+
+Terraform 0.12. Pin module version to ~> 2.0. Submit pull-requests to terraform012 branch.
 
 Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform011 branch.
-
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -84,7 +85,6 @@ Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform0
 | ecs\_instance\_role | The name of the ECS instance role. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 
 ## Developer Setup
 
