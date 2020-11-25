@@ -6,12 +6,8 @@ locals {
 # ECS
 #
 
-resource "aws_ecs_cluster" "main" {
-  name = local.cluster_name
-
-  lifecycle {
-    create_before_destroy = true
-  }
+data "aws_ecs_cluster" "main" {
+  cluster_name = "${local.cluster_name}"
 }
 
 #
@@ -55,7 +51,7 @@ resource "aws_iam_instance_profile" "ecs_instance_profile" {
 #
 
 resource "aws_security_group" "main" {
-  name        = "asg-${local.cluster_name}"
+  name        = "asg-ec2-${local.cluster_name}"
   description = "${local.cluster_name} ASG security group"
   vpc_id      = var.vpc_id
 
@@ -96,24 +92,13 @@ resource "aws_launch_configuration" "main" {
     volume_size = var.ebs_volume_size
   }
 
-  ebs_block_device {
-    device_name = "/dev/xvdcz"
-    volume_type = "standard"
-    volume_size = var.ebs_volume_size
-    encrypted   = true
-  }
-
   user_data = <<EOF
 #!/bin/bash
 # The cluster this agent should check into.
-echo 'ECS_CLUSTER=${aws_ecs_cluster.main.name}' >> /etc/ecs/ecs.config
+echo 'ECS_CLUSTER=${data.aws_ecs_cluster.main.name}' >> /etc/ecs/ecs.config
 
 # Disable privileged containers.
 echo 'ECS_DISABLE_PRIVILEGED=true' >> /etc/ecs/ecs.config
-
-# Install Docker volume plugins
-docker plugin install rexray/ebs --grant-all-permissions
-docker plugin install rexray/s3fs --grant-all-permissions
 EOF
 
 
