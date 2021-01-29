@@ -31,6 +31,7 @@ module "app_ecs_cluster" {
   image_id      = "${data.aws_ami.ecs_ami.image_id}"
   instance_type = "t2.micro"
 
+  vpc_id           = "${module.vpc.id}"
   subnet_ids       = "${module.vpc.private_subnets}"
   desired_capacity = 3
   max_size         = 3
@@ -51,7 +52,7 @@ Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform0
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 0.13.0 |
+| terraform | >= 0.13.0 |
 | aws | ~> 3.0 |
 
 ## Providers
