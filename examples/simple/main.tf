@@ -21,7 +21,7 @@ module "app_ecs_cluster" {
   name        = var.test_name
   environment = "test"
 
-  image_id      = "${data.aws_ami.ecs_ami.image_id}"
+  image_id      = data.aws_ami.ecs_ami.image_id
   instance_type = "t2.micro"
 
   vpc_id             = module.vpc.vpc_id
