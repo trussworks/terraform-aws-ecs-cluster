@@ -57,3 +57,9 @@ variable "security_group_ids" {
   type        = list(string)
   default     = []
 }
+
+variable "user_data" {
+  description = "Additional user data scripts to execute"
+  type        = string
+  default     = ""
+}
