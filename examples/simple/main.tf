@@ -34,7 +34,7 @@ module "app_ecs_cluster" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 2.39.0"
+  version = "~> 2.53.0"
 
   name            = var.test_name
   cidr            = "10.0.0.0/16"
