@@ -97,6 +97,7 @@ resource "aws_launch_configuration" "main" {
   ebs_block_device {
     device_name = "/dev/xvdcz"
     volume_type = "standard"
+    volume_size = var.volume_size
     encrypted   = true
   }
 

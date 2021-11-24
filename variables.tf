@@ -57,3 +57,9 @@ variable "security_group_ids" {
   type        = list(string)
   default     = []
 }
+
+variable "volume_size" {
+  description = "EBS block volume size."
+  type        = string
+  default     = 10
+}
