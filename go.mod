@@ -4,6 +4,6 @@ go 1.13
 
 require (
 	github.com/aws/aws-sdk-go v1.42.19
-	github.com/gruntwork-io/terratest v0.38.2
+	github.com/gruntwork-io/terratest v0.38.8
 	github.com/stretchr/testify v1.7.0
 )
