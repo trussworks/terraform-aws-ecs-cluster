@@ -4,3 +4,6 @@ linters:
     - revive
     - gofmt
     - goimports
+
+run:
+  timeout: 1m
