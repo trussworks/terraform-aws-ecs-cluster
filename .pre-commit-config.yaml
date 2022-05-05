@@ -23,6 +23,6 @@ repos:
       - id: terraform_fmt
 
   - repo: https://github.com/golangci/golangci-lint
-    rev: v1.30.0
+    rev: v1.45.2
     hooks:
       - id: golangci-lint
