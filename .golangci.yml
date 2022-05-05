@@ -6,4 +6,4 @@ linters:
     - goimports
 
 run:
-  timeout: 1m
+  timeout: 2m
