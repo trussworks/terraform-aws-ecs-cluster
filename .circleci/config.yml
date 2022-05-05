@@ -1,38 +1,39 @@
 jobs:
   terratest:
     docker:
-    - auth:
-        password: $DOCKER_PASSWORD
-        username: $DOCKER_USERNAME
-      image: trussworks/circleci:29ab89fdada1f85c5d8fb685a2c71660f0c5f60c
+      - auth:
+          password: $DOCKER_PASSWORD
+          username: $DOCKER_USERNAME
+        image: trussworks/circleci:b0e222f15769ec9d0bb8e4c637fab0d01c8636b0
     steps:
-    - checkout
-    - restore_cache:
-        keys:
-        - pre-commit-dot-cache-{{ checksum ".pre-commit-config.yaml" }}
-        - go-mod-sources-v1-{{ checksum "go.sum" }}
-    - run:
-        command: "temp_role=$(aws sts assume-role \\\n        --role-arn arn:aws:iam::313564602749:role/circleci\
-          \ \\\n        --role-session-name circleci)\nexport AWS_ACCESS_KEY_ID=$(echo\
-          \ $temp_role | jq .Credentials.AccessKeyId | xargs)\nexport AWS_SECRET_ACCESS_KEY=$(echo\
-          \ $temp_role | jq .Credentials.SecretAccessKey | xargs)\nexport AWS_SESSION_TOKEN=$(echo\
-          \ $temp_role | jq .Credentials.SessionToken | xargs)\nmake test\n"
-        name: Assume role, run pre-commit and run terratest
-    - save_cache:
-        key: pre-commit-dot-cache-{{ checksum ".pre-commit-config.yaml" }}
-        paths:
-        - ~/.cache/pre-commit
-    - save_cache:
-        key: go-mod-sources-v1-{{ checksum "go.sum" }}
-        paths:
-        - ~/go/pkg/mod
+      - checkout
+      - restore_cache:
+          keys:
+            - pre-commit-dot-cache-{{ checksum ".pre-commit-config.yaml" }}
+            - go-mod-sources-v1-{{ checksum "go.sum" }}
+      - run:
+          command:
+            "temp_role=$(aws sts assume-role \\\n        --role-arn arn:aws:iam::313564602749:role/circleci\
+            \ \\\n        --role-session-name circleci)\nexport AWS_ACCESS_KEY_ID=$(echo\
+            \ $temp_role | jq .Credentials.AccessKeyId | xargs)\nexport AWS_SECRET_ACCESS_KEY=$(echo\
+            \ $temp_role | jq .Credentials.SecretAccessKey | xargs)\nexport AWS_SESSION_TOKEN=$(echo\
+            \ $temp_role | jq .Credentials.SessionToken | xargs)\nmake test\n"
+          name: Assume role, run pre-commit and run terratest
+      - save_cache:
+          key: pre-commit-dot-cache-{{ checksum ".pre-commit-config.yaml" }}
+          paths:
+            - ~/.cache/pre-commit
+      - save_cache:
+          key: go-mod-sources-v1-{{ checksum "go.sum" }}
+          paths:
+            - ~/go/pkg/mod
 references:
-  circleci: trussworks/circleci:29ab89fdada1f85c5d8fb685a2c71660f0c5f60c
+  circleci: trussworks/circleci:b0e222f15769ec9d0bb8e4c637fab0d01c8636b0
 version: 2.1
 workflows:
   validate:
     jobs:
-    - terratest:
-        context:
-        - org-global
+      - terratest:
+          context:
+            - org-global
   version: 2.1
