@@ -12,4 +12,3 @@ output "ecs_instance_role" {
   description = "The name of the ECS instance role."
   value       = aws_iam_role.ecs_instance_role.name
 }
-
