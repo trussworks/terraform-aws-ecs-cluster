@@ -34,7 +34,8 @@
         "terraform",
         "pre-commit",
         "dockerfile",
-        "github-actions"
+        "github-actions",
+        "gomod"
       ],
       "matchUpdateTypes": [
         "minor",
@@ -42,7 +43,6 @@
       ]
     }
   ],
-  "prConcurrentLimit": 2,
   "schedule": [
     "every weekend"
   ],
