@@ -1,5 +1,7 @@
 # DEPRECIATION NOTICE
+ 
 This module has been deprecated and is no longer maintained. Should you need to continue to use it, please fork the repository. Thank you.
+ 
  Creates an ECS cluster backed by an AutoScaling Group.
 
 The cluster is minimally configured and expects any ECS service added will
